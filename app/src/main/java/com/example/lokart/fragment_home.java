@@ -43,13 +43,21 @@ public class fragment_home extends Fragment{
             @Override
             public void onbtnclick(int position, String title) {
                 sharedViewModel.addToCart(title);
-                Toast.makeText(getContext(), title, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Item added to cart!", Toast.LENGTH_SHORT).show();
 //                fragment_cart fragment=new fragment_cart();
 //                Bundle bundle =new Bundle();
 //                bundle.putString("Title",title);
 //                fragment.setArguments(bundle);
 //               new MainActivity().s=title;
 //                Toast.makeText(getActivity(), "Clicked "+title, Toast.LENGTH_SHORT).show();
+            }
+
+        },new hrtclick(){
+
+            @Override
+            public void onhrtclick(int position, String title) {
+                sharedViewModel.addTowish(title);
+                Toast.makeText(getContext(),"Item added to wishlist!", Toast.LENGTH_SHORT).show();
             }
         });
         recyclerview.setAdapter(md);
@@ -109,4 +117,8 @@ public class fragment_home extends Fragment{
     public interface btnclick{
         void onbtnclick(int position,String title);
     }
+    public interface hrtclick{
+        void onhrtclick(int position,String title);
+    }
+
 }

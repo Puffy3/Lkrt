@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +44,20 @@ public class fragment_cart extends Fragment {
 
         // Initialize your ListView and ArrayAdapter if not done already
         ListView listView = view.findViewById(R.id.listview);
+        FloatingActionButton checkout=new FloatingActionButton(getContext());
+        checkout=view.findViewById(R.id.checkout);
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                arr.clear();
+//                arr.notifyDataSetChanged();
+                cartViewModel.clearCart();
+                sharedViewModel.clearCart();
+                // Handle the click event
+                // For example, open a new activity or show a dialog
+
+            }
+        });
 
         if (arr == null) {
             arr = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1,cartViewModel.getCartItems());

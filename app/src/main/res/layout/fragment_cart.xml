@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     tools:context=".fragment_cart">
 
@@ -16,7 +17,7 @@
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="Cart empty!"
-        android:textSize="40sp"
+        android:textSize="15sp"
         android:id="@+id/emptcart"/>
 
     <ListView
@@ -24,7 +25,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
+        android:dividerHeight="10dp"
+        android:layout_marginTop="10dp"
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="320dp"
+        app:shapeAppearance="@drawable/baseline_account_circle_24"
+       android:src="@drawable/baseline_arrow_forward_24"
+        android:id="@+id/checkout"/>
+
 
 
 

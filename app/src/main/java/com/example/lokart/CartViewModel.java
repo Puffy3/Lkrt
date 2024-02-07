@@ -16,4 +16,7 @@ public class CartViewModel extends ViewModel {
     public void addToCart(String title) {
         cartRepository.addToCart(title);
     }
+    public void clearCart() {
+        cartRepository.clearCart();
+    }
 }

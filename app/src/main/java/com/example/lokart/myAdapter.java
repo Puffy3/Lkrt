@@ -28,11 +28,13 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.Myviewholder> {
     Context context;
     ArrayList<products> productsArraylist;
     fragment_home.btnclick btnclick;
+    fragment_home.hrtclick hrtclick;
 
-    public myAdapter(Context context, ArrayList<products> productsArraylist,fragment_home.btnclick btnclick){
+    public myAdapter(Context context, ArrayList<products> productsArraylist,fragment_home.btnclick btnclick, fragment_home.hrtclick hrtclick){
         this.context=context;
         this.productsArraylist=productsArraylist;
         this.btnclick=btnclick;
+        this.hrtclick=hrtclick;
     }
     @NonNull
     @Override
@@ -49,6 +51,17 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.Myviewholder> {
         holder.description.setText(product.description);
         holder.price.setText(product.price);
     holder.cart.setText("Add to cart");
+        holder.heart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(hrtclick!=null){
+                    products product=productsArraylist.get(position);
+                    hrtclick.onhrtclick(1,productsArraylist.get(position).getTitle());
+                }
+            }
+
+
+        });
         holder.cart.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -67,7 +80,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.Myviewholder> {
 
     public static class Myviewholder extends RecyclerView.ViewHolder {
         ArrayList<String> a = new ArrayList<>();
-        ImageView img;
+        ImageView img,heart;
        public TextView title,description,price;
         Button cart;
         public Myviewholder(@NonNull View itemView) {
@@ -77,6 +90,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.Myviewholder> {
             description=itemView.findViewById(R.id.product_description);
             price=itemView.findViewById(R.id.product_price);
             cart=itemView.findViewById(R.id.crtbtn);
+            heart=itemView.findViewById(R.id.heart);
 //            cart.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

@@ -14,4 +14,7 @@ public class CartRepository {
 
         cartItems.add(title);
     }
+    public void clearCart() {
+        cartItems.clear();
+    }
 }
